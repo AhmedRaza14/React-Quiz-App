@@ -19,6 +19,16 @@ const Quiz = (props) => {
       setScore(0)
     }
   }
+
+  const handlePrev = () => {
+    if (index > 0) {
+      setIndex(index - 1)
+    }
+    else {
+      alert(`      You Are On The First Question. There Is Nothing Previous`)
+    }
+  }
+
   const checkVal = (e) => {
     if(e.target.value === props.quizData[index].answer){
       setScore(score + 1)
@@ -76,7 +86,8 @@ const Quiz = (props) => {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        gap: '40px'
       }}
       >
 
@@ -85,9 +96,24 @@ const Quiz = (props) => {
         // display: 'flex',
         // justifyContent: 'center',
         // alignItems: 'center',
+        backgroundColor: 'blue',
+        color: 'white',
+        width: '120px',
+        marginTop: '30px',
+        textAlign: 'center'
+        // marginLeft: '46px',
+      }}
+      onClick={handlePrev}
+      >Previous</button>
+ 
+      <button
+      style={{
+        // display: 'flex',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         backgroundColor: 'green',
         color: 'white',
-        width: '100px',
+        width: '120px',
         marginTop: '30px',
         // marginLeft: '46px',
       }}
@@ -95,35 +121,17 @@ const Quiz = (props) => {
       >Next</button>
       </div>
     </div>
- 
-</div>
 
 
 
 
-
-
-
-
-{/* 
-  {props.quizData.map((item, index) => (
-    <div key={index}>
-      <h2>{item.question}</h2>
-      <div>
-        {item.options.map((option, i) => (
-          <div key={i}>
-            <input
-              type="radio"
-              name={`question-${index}`}
-              value={option}
-            />
-            {option}
-          </div>
-        ))}
       </div>
     </div>
-  ))}
-</div> */}
-</div>
+
+
+
+
+
+
   )}
 export default Quiz
